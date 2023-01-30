@@ -1,8 +1,6 @@
 let computerScore = 0
 let playerScore = 0
 
-
-
 //creating function to get a random int between specified operands.
 function getRandomInt(max) {
     return Math.floor(Math.random() * max )
