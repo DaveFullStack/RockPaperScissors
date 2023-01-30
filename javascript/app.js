@@ -32,7 +32,78 @@ function getPlayerChoice() {
 //console.log(getPlayerChoice())
 
 function getComputerChoice(arrayIndex = getRandomInt(3)) {
-    return gameChoice[arrayIndex]
+    let computerChoice = gameChoice[arrayIndex]
+    return computerChoice
 }
-console.log(getComputerChoice())
+//console.log(getComputerChoice())
 
+function playRound(playerChoice, computerChoice) {
+
+        playerChoice = getPlayerChoice()
+        // assigning function to variable declared in playRound function.
+        computerChoice = getComputerChoice()
+        //assigning function to computerChoice variable in playRound function.
+        
+        console.log(playerChoice)
+        //display player choice
+        console.log(computerChoice)
+        //display computer choice 
+
+        if (playerChoice == computerChoice) {
+            console.log('tis a draw')
+        }
+        else if (playerChoice == 'rock' && computerChoice == 'scissors') {
+            console.log('you win')
+            playerScore++;
+        }
+        else if (playerChoice == 'rock' && computerChoice == 'paper') {
+            console.log('you lose')
+            computerScore++;
+        }
+        else if (playerChoice == 'paper' && computerChoice == 'rock') {
+            console.log('you win')
+            playerScore++;
+        }
+        else if (playerChoice == 'paper' && computerChoice == 'scissors') {
+            console.log('you lose')
+            computerScore++;
+        }
+        else if (playerChoice == 'scissors' && computerChoice == 'paper') {
+            console.log('you win')
+            playerScore++;
+        }
+        else if (playerChoice == 'scissors' && computerScore == 'rock') {
+            console.log('you lose')
+            computerScore++;
+        }
+    }
+
+//console.log(playRound())
+
+function playGame() {
+    for (i = 0; i < 3; i++) {
+        playRound();
+        console.log(playerScore, computerScore)
+    }
+}
+console.log(playGame())
+
+function results() {
+    let winnerScore = playerScore - computerScore
+    let loserScore = computerScore - playerScore
+    let winner = 'Congratulations! You won by ' + winnerScore
+    let loser = 'Damn! you lost by ' + loserScore
+
+    if (playerScore > computerScore) {
+        console.log(winner)
+    }
+    else if (playerScore < computerScore) {
+        console.log(loser)
+    }
+    else if (playerScore == computerScore) {
+        console.log("It's a draw!")
+    }
+    console.log('player score: ' + playerScore)
+    console.log('computer score: ' + computerScore)
+}
+console.log(results())
